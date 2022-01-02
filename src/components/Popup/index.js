@@ -22,7 +22,6 @@ const Popup = ({data,setPopup}) => {
                     }
                 }
                 else {
-                    console.log(key[0], key[1])
                     if(key[1]===false)
                         return <p key={index}> {key[0]} : false </p>
                     return <p key={index}> {key[0]} : {key[1]} </p>

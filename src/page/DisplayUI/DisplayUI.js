@@ -4,10 +4,11 @@ import {ReactComponent as Search} from '../../assets/search.svg';
 
 import React, {useCallback, useEffect, useState} from "react";
 import Loading from "../../components/Loading";
+import {DATA} from "../../constants";
 
 
 const DisplayUI = () => {
-    const yahooData = JSON.parse(localStorage.getItem("data") || false)
+    const yahooData = JSON.parse(localStorage.getItem(DATA) || false)
     const [searchInput, setSearchInput] = useState('');
     const [searchErr, setSearchErr] = useState('');
     const [filterArr, setFilterArr] = useState(yahooData);
@@ -15,9 +16,8 @@ const DisplayUI = () => {
 
     const onChangeSearchInput = (e) => {
         const {value} = e.target;
-        console.log(value)
         // Only en letters
-        const isValid = /^[a-zA-Z,0-9\s]+$/.test(value)||value.length===0;
+        const isValid = /^[a-zA-Z,0-9\s]+$/.test(value) || value.length === 0;
         if (!isValid) {
             setSearchErr('Only en letters allowed');
         } else {
@@ -29,7 +29,7 @@ const DisplayUI = () => {
         let arrFilter = []
         if (searchInput.trim()) {
             const timer = setTimeout(async () => {
-                 arrFilter = await yahooData.filter((filter) => {
+                arrFilter = await yahooData.filter((filter) => {
                     let isContinue = false
                     const filterObj = Object.entries((filter))
                     filterObj.map((key, index) => {
@@ -45,24 +45,17 @@ const DisplayUI = () => {
                     })
                     return isContinue
                 })
-                if(arrFilter.length>0){
-                    console.log(111)
-                    console.log(arrFilter)
+                if (arrFilter.length > 0) {
                     setFilterArr(arrFilter)
-                }
-                else{
-                    console.log(222)
+                } else {
+                    Z
                     setFilterArr(yahooData)
                 }
-
             }, 500);
 
             return () => clearTimeout(timer);
         }
     }, [searchInput]);
-
-    console.log(filterArr)
-
 
     useEffect(() => {
         setTimeout(() => {

@@ -1,14 +1,19 @@
-import {DISABLE_POPUP, ENABLE_POPUP, SET_ERR, START_LOADING, STOP_LOADING, UPDATE_LOGIN} from "../constants";
+import {
+    DISABLE_POPUP,
+    ENABLE_POPUP,
+    SET_ERR,
+    START_LOADING,
+    STOP_LOADING,
+    UPDATE_LOGIN,
+    YAHOO_USER
+} from "../constants";
 import store from "../store";
 import {useSelector} from "react-redux";
 
 
 export const setLogin = (data="") => (dispatch) => {
     dispatch({type: START_LOADING})
-
-    console.log(data)
     const {isLogin, userName} = store.getState().auth
-    console.log(userName)
     const newUser = {}
     if (userName === "") {
         newUser["userName"] = data
@@ -16,8 +21,7 @@ export const setLogin = (data="") => (dispatch) => {
         newUser["userName"] = ""
     }
     newUser["isLogin"] = !isLogin
-    console.log(newUser)
-    localStorage.setItem("yahooUser",data)
+    localStorage.setItem(YAHOO_USER,data)
     dispatch({type: UPDATE_LOGIN, payload: newUser})
 }
 

@@ -5,6 +5,7 @@ export const NavbarContainer = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 2px 10px;
+  max-width: 100vw;
   align-items: center;
   font-size: 15px;
   background-color: rgba(255, 255, 255, 0.7);
@@ -13,6 +14,10 @@ export const NavbarContainer = styled.div`
   flex-direction: row;
   font-weight: bolder;
   margin-bottom: 120px;
+  @media only screen and (max-width: 450px) {
+    font-size: 10px;
+  }
+
 
 `;
 
@@ -38,6 +43,11 @@ export const Button = styled.button`
   margin-left: 10px;
   background-color: rgba(255, 255, 255, 0.7);
   cursor: pointer;
+  @media only screen and (max-width: 450px) {
+    min-width: 60px;
+    min-height: 40px;
+  }
+
 
 `;
 

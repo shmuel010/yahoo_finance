@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {setLogin} from "../../actions/AuthAction";
 import {useEffect} from "react";
 import {useAuth0} from "@auth0/auth0-react";
+import {YAHOO_USER} from "../../constants";
 
 const Navbar = () => {
     const { logout } = useAuth0();
@@ -12,12 +13,12 @@ const Navbar = () => {
     const {isLogin, userName} = useSelector((state => state.auth))
     const onLogout = () => {
         logout({ returnTo: window.location.origin })
-        localStorage.removeItem("yahooUser");
+        localStorage.removeItem(YAHOO_USER);
         dispatch(setLogin())
     }
-    useEffect(()=>{
-        console.log("change login")
-    },[isLogin])
+    // useEffect(()=>{
+    //     console.log("change login")
+    // },[isLogin])
 
 return (
     <NavbarContainer>

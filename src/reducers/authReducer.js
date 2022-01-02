@@ -23,8 +23,6 @@ const initialState = {
 
         case UPDATE_LOGIN: {
             const {isLogin, userName} = payload;
-            console.log(payload)
-
             return {...state, isLogin: isLogin, userName: userName};
         }
 
@@ -37,7 +35,6 @@ const initialState = {
         }
 
         case SET_ERR: {
-            console.log(payload)
             return {...state,err: payload};
         }
         default:

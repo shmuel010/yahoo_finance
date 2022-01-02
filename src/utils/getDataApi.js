@@ -1,5 +1,6 @@
 import axios from "axios";
 import {setErr, setLoading, setLogin} from "../actions/AuthAction";
+import {DATA} from "../constants";
 
 export const GetDataApi = async () => {
     try {
@@ -16,7 +17,7 @@ export const GetDataApi = async () => {
         const res = await axios.get(url)
         if (res.status === 200) {
             const data = res.data.marketSummaryResponse.result
-            localStorage.setItem("data",JSON.stringify(data) )
+            localStorage.setItem(DATA,JSON.stringify(data) )
             setLoading()
         }
     } catch (err) {

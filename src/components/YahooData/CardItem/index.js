@@ -11,9 +11,6 @@ const CardItem = ({data}) => {
     const [isPopup, setPopup] = useState(false)
     const {market, symbol, shortName, regularMarketPrice, regularMarketChangePercent} = data;
 
-    console.log(isPopupClick)
-    // console.log(data)
-
     const onCardClick = () => {
         if (isPopupClick) {
             setPopup(true)

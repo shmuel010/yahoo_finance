@@ -20,8 +20,6 @@ const Login = () => {
     }
     const onClick = () => {
         loginWithRedirect().then()
-        console.log(123)
-        console.log(userName, password)
         if (userName.length > 0 && password.length > 0) {
             dispatch(setLogin(userName))
         }

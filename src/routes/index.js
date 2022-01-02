@@ -6,14 +6,14 @@ import {useDispatch, useSelector} from "react-redux";
 import DisplayUI from "../page/DisplayUI/DisplayUI";
 import {setLogin} from "../actions/AuthAction";
 import {useAuth0} from "@auth0/auth0-react";
+import {YAHOO_USER} from "../constants";
 
 const AppRoutes = () => {
     const dispatch = useDispatch()
     const {isLogin} = useSelector((state) => state.auth)
-    const userName = localStorage.getItem("yahooUser") || null
+    const userName = localStorage.getItem(YAHOO_USER) || null
 
     const { user, isAuthenticated, isLoading } = useAuth0();
-    console.log(user)
 
     useEffect(()=>{
         if (userName) {
