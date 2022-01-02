@@ -41,6 +41,7 @@ export const Button = styled.button`
   font-size: 20px;
   padding: 10px;
   margin-left: 10px;
+  margin-right: 10px;
   background-color: rgba(255, 255, 255, 0.7);
   cursor: pointer;
   @media only screen and (max-width: 450px) {

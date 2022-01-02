@@ -45,12 +45,7 @@ const DisplayUI = () => {
                     })
                     return isContinue
                 })
-                if (arrFilter.length > 0) {
                     setFilterArr(arrFilter)
-                } else {
-                    Z
-                    setFilterArr(yahooData)
-                }
             }, 500);
 
             return () => clearTimeout(timer);
@@ -61,7 +56,6 @@ const DisplayUI = () => {
         setTimeout(() => {
             if (searchErr) {
                 setSearchErr("")
-                setSearchInput("")
             }
 
         }, 1500)
@@ -83,11 +77,14 @@ const DisplayUI = () => {
             </SearchInput>
             {/*<CardItemWrapper>*/}
             {!yahooData ? (<Loading>Error please try later...</Loading>)
-                : (filterArr.map((stock, index) => {
+                : (searchInput.length >0 ? (filterArr.map((stock, index) => {
                         // console.log(stock)
                         return (<CardItem key={index} data={stock}/>)
-                    })
-                )}
+                    })):
+                    (yahooData.map((stock, index) => {
+                        // console.log(stock)
+                        return (<CardItem key={index} data={stock}/>)
+                })))}
             {/*</CardItemWrapper>*/}
         </CardContainer>
 
